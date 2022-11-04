@@ -87,6 +87,11 @@ extension View {
         ))
     }
     
+    /// Finds a `UICollectionView` from a `SwiftUI.List`, or `SwiftUI.List` child.
+    public func introspectCollectionView(customize: @escaping (UICollectionView) -> ()) -> some View {
+        introspect(selector: TargetViewSelector.ancestorOrSiblingContaining, customize: customize)
+    }
+    
     /// Finds a `UITableView` from a `SwiftUI.List`, or `SwiftUI.List` child.
     public func introspectTableView(customize: @escaping (UITableView) -> ()) -> some View {
         introspect(selector: TargetViewSelector.ancestorOrSiblingContaining, customize: customize)
